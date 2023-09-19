@@ -26,7 +26,11 @@ public class Guess extends HBox
 		
 		super.setPadding(new Insets(20));
 		focusAnim = new GrowShrinkAnimation(this, Duration.seconds(0.25), 0.125);
-		super.setOnMouseClicked(e -> Editor.focusGuess(this));
+		super.setOnMouseClicked(e -> 
+		{
+			if (Editor.getEditMode() == EditMode.GUESSES)
+				Editor.focusGuess(this);
+		});
 	}
 	
 	public void onFocused()
@@ -54,6 +58,6 @@ public class Guess extends HBox
 	public void removeChar()
 	{
 		string = string.substring(0, string.length() - 1);
-		charTiles[string.length()].setBlank();
+		charTiles[string.length()].setChar(' ');
 	}
 }

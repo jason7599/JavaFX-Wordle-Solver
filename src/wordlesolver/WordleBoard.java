@@ -1,8 +1,10 @@
 package wordlesolver;
 
 import javafx.geometry.Insets;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class WordleBoard extends BorderPane
 {
@@ -20,6 +22,9 @@ public class WordleBoard extends BorderPane
 	
 	private WordleBoard()
 	{
+		super.setBackground(Background.fill(Color.BLACK));
+		super.setPadding(new Insets(100));
+		
 		EditPanel editPanel = new EditPanel();
 		BorderPane.setMargin(editPanel, new Insets(25));
 		super.setTop(editPanel);
@@ -34,7 +39,8 @@ public class WordleBoard extends BorderPane
 		}
 		
 		super.setCenter(guessesVB);
-		super.setPadding(new Insets(100));
+		
+		Editor.focusGuess(guesses[0]);
 	}
 	
 	public Guess getGuess(int index)
