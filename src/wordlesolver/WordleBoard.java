@@ -14,7 +14,6 @@ public class WordleBoard extends BorderPane
 		return _instance;
 	}
 	
-	public static final int NUM_GUESSES = 5;
 	public static final double TILE_GAP = 15;
 	
 	private Guess[] guesses;
@@ -25,9 +24,9 @@ public class WordleBoard extends BorderPane
 		BorderPane.setMargin(editPanel, new Insets(25));
 		super.setTop(editPanel);
 		
-		guesses = new Guess[NUM_GUESSES];
+		guesses = new Guess[Constants.NUM_GUESSES];
 		VBox guessesVB = new VBox(TILE_GAP);
-		for (int i = 0; i < NUM_GUESSES; i++)
+		for (int i = 0; i < Constants.NUM_GUESSES; i++)
 		{
 			Guess guess = guesses[i] = new Guess(i);
 			guess.setSpacing(TILE_GAP);

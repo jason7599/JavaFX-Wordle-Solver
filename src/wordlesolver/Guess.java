@@ -47,15 +47,13 @@ public class Guess extends HBox
 	
 	public void appendChar(char c)
 	{
-		if (string.length() == Constants.WORD_LENGTH)
-			return;
-		
 		charTiles[string.length()].setChar(c);
 		string += c;
 	}
 	
-	public void onBackspace()
+	public void removeChar()
 	{
-		
+		string = string.substring(0, string.length() - 1);
+		charTiles[string.length()].setBlank();
 	}
 }

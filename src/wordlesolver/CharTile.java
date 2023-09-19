@@ -29,4 +29,9 @@ public class CharTile extends StackPane
 		charText.setText(String.valueOf(c));
 		myChar = c;
 	}
+	
+	public void setBlank()
+	{
+		setChar(' ');
+	}
 }

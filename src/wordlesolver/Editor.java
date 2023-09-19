@@ -51,7 +51,7 @@ public class Editor
 			if (focusedGuess.getString().length() == Constants.WORD_LENGTH)
 			{
 				// shift focus to the next guess if it exists
-				if (focusedGuess.index + 1 != WordleBoard.NUM_GUESSES)
+				if (focusedGuess.index + 1 != Constants.NUM_GUESSES)
 					focusGuess(WordleBoard.instance().getGuess(focusedGuess.index + 1));
 				else
 					return;
@@ -60,11 +60,21 @@ public class Editor
 		}
 		else if (keyCode == KeyCode.BACK_SPACE)
 		{
-			
+			if (focusedGuess.getString().length() == 0)
+			{
+				if (focusedGuess.index != 0)
+					focusGuess(WordleBoard.instance().getGuess(focusedGuess.index - 1));
+				else
+					return;
+			}
+			// Additional check
+			if (focusedGuess.getString().length() != 0)
+				focusedGuess.removeChar();
 		}
 		else if (keyCode == KeyCode.ENTER)
 		{
-			
+			if (focusedGuess.index + 1 != Constants.NUM_GUESSES)
+				focusGuess(WordleBoard.instance().getGuess(focusedGuess.index + 1));
 		}
 	}
 }
