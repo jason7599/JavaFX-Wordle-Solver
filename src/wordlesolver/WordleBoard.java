@@ -37,9 +37,8 @@ public class WordleBoard extends BorderPane
 			guessesVB.getChildren().add(guess);
 		}
 		
-		this.setCenter(guessesVB);
-		
 		Editor.focusGuess(guesses[0]);
+		this.setCenter(guessesVB);		
 	}
 	
 	public Guess getGuess(int index)

@@ -11,7 +11,7 @@ public class CharTile extends StackPane
 	private static final Font FONT = new Font("Arial Black", 50);
 	
 	private Text charText;
-	private char myChar;
+	private char myChar = ' ';
 	private TileEvaluation evaluation;
 	private GrowShrinkAnimation inputAnim;
 	
@@ -28,6 +28,8 @@ public class CharTile extends StackPane
 		inputAnim = new GrowShrinkAnimation(this, Duration.seconds(0.1), 0.125);
 		
 		setEvaluation(TileEvaluation.NONE);
+		
+		this.setOnMouseClicked(e -> Editor.onCharTileClicked(this));
 	}
 	
 	public void setChar(char c)
@@ -40,11 +42,22 @@ public class CharTile extends StackPane
 		myChar = c;
 	}
 	
+	public char getChar()
+	{
+		return myChar;
+	}
+	
 	public void setEvaluation(TileEvaluation evaluation)
 	{
+		if (evaluation == this.evaluation)
+			return;
+		
 		this.evaluation = evaluation;
 		this.setBackground(evaluation.backgroundStyle);
 		this.setBorder(evaluation.borderStyle);
+		
+		if (evaluation != TileEvaluation.NONE)
+			inputAnim.play();
 	}
 	
 	public TileEvaluation getEvaluation()

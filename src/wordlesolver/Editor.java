@@ -5,15 +5,16 @@ import javafx.scene.input.KeyCode;
 public class Editor 
 {
 	private static Guess focusedGuess;
+	private static EvaluationOption selectedEvaluationOption;
 		
 	public static void focusGuess(Guess guess)
 	{
 		if (guess == focusedGuess)
 			return;
-		
+						
 		if (focusedGuess != null)
 			focusedGuess.onUnfocused();
-				
+		
 		focusedGuess = guess;
 		focusedGuess.onFocused();
 	}
@@ -65,5 +66,22 @@ public class Editor
 		}
 	}
 	
+	public static void selectEvaluationOption(EvaluationOption evaluationOption)
+	{
+		if (evaluationOption == selectedEvaluationOption)
+			return;
+		
+		if (selectedEvaluationOption != null)
+			selectedEvaluationOption.onDeselected();
+		
+		selectedEvaluationOption = evaluationOption;
+		selectedEvaluationOption.onSelected();
+	}
 	
+	public static void onCharTileClicked(CharTile charTile)
+	{
+		if (charTile.getChar() == ' ')
+			return;
+		charTile.setEvaluation(selectedEvaluationOption.evaluation);
+	}
 }
