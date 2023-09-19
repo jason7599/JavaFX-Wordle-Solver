@@ -25,16 +25,13 @@ public class Guess extends HBox
 		}
 		
 		this.setPadding(new Insets(20));
+		
 		focusAnim = new GrowShrinkAnimation(this, Duration.seconds(0.25), 0.125);
-		this.setOnMouseClicked(e -> 
-		{
-			if (Editor.getEditMode() == EditMode.GUESSES)
-				Editor.focusGuess(this);
-		});
 	}
 	
 	public void onFocused()
 	{
+		// TEMP
 		this.setBorder(Border.stroke(Color.RED));
 		focusAnim.play();
 	}

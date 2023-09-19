@@ -5,21 +5,33 @@ import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
-import javafx.scene.paint.Color;
 
 public enum TileEvaluation 
 {
-	NONE(Background.fill(Color.rgb(18, 18, 19)), new Border(new BorderStroke(Color.DIMGRAY, BorderStrokeStyle.SOLID, null, new BorderWidths(2.5)))),
-	CORRECT(Background.fill(Color.rgb(83, 141, 78)), null),
-	WRONG_SPOT(Background.fill(Color.rgb(181, 159, 59)), null),
-	WRONG(Background.fill(Color.rgb(58, 58, 60)), null);
+	NONE(Background.fill(Colors.BACKGROUND), 
+			new Border(new BorderStroke(Colors.TILE_BORDER, BorderStrokeStyle.SOLID, null, new BorderWidths(2.5))),
+			"None"),
+	
+	CORRECT(Background.fill(Colors.CORRECT), 
+			null,
+			"Correct"),
+	
+	WRONG_SPOT(Background.fill(Colors.WRONG_SPOT),
+			null,
+			"Wrong Spot"),
+	
+	WRONG(Background.fill(Colors.WRONG), 
+			null,
+			"Wrong");
 	
 	public final Background backgroundStyle;
 	public final Border borderStyle;
+	public final String description;
 	
-	private TileEvaluation(Background backgroundStlye, Border borderStyle)
+	private TileEvaluation(Background backgroundStlye, Border borderStyle, String description)
 	{
 		this.backgroundStyle = backgroundStlye;
 		this.borderStyle = borderStyle;
+		this.description = description;
 	}
 }

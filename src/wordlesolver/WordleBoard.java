@@ -4,7 +4,6 @@ import javafx.geometry.Insets;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 
 public class WordleBoard extends BorderPane
 {
@@ -22,7 +21,7 @@ public class WordleBoard extends BorderPane
 	
 	private WordleBoard()
 	{
-		this.setBackground(Background.fill(Color.rgb(18, 18, 19)));
+		this.setBackground(Background.fill(Colors.BACKGROUND));
 		this.setPadding(new Insets(100));
 		
 		EditPanel editPanel = new EditPanel();

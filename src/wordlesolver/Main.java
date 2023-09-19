@@ -11,8 +11,8 @@ public class Main extends Application
 	{
 		stage.setScene(new Scene(WordleBoard.instance()));
 		stage.getScene().setOnKeyPressed(e -> Editor.onKeyPressed(e.getCode()));
-		stage.setResizable(false);
 		stage.setTitle("Wordle Solver");
+		stage.setResizable(false);
 		stage.show();
 	}
 	
