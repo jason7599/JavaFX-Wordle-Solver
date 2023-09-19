@@ -22,12 +22,12 @@ public class WordleBoard extends BorderPane
 	
 	private WordleBoard()
 	{
-		super.setBackground(Background.fill(Color.BLACK));
-		super.setPadding(new Insets(100));
+		this.setBackground(Background.fill(Color.rgb(18, 18, 19)));
+		this.setPadding(new Insets(100));
 		
 		EditPanel editPanel = new EditPanel();
 		BorderPane.setMargin(editPanel, new Insets(25));
-		super.setTop(editPanel);
+		this.setTop(editPanel);
 		
 		guesses = new Guess[Constants.NUM_GUESSES];
 		VBox guessesVB = new VBox(TILE_GAP);
@@ -38,7 +38,7 @@ public class WordleBoard extends BorderPane
 			guessesVB.getChildren().add(guess);
 		}
 		
-		super.setCenter(guessesVB);
+		this.setCenter(guessesVB);
 		
 		Editor.focusGuess(guesses[0]);
 	}

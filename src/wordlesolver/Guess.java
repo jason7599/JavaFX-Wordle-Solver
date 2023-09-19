@@ -21,12 +21,12 @@ public class Guess extends HBox
 		for (int i = 0; i < Constants.WORD_LENGTH; i++)
 		{
 			CharTile charTile = charTiles[i] = new CharTile();
-			super.getChildren().add(charTile);
+			this.getChildren().add(charTile);
 		}
 		
-		super.setPadding(new Insets(20));
+		this.setPadding(new Insets(20));
 		focusAnim = new GrowShrinkAnimation(this, Duration.seconds(0.25), 0.125);
-		super.setOnMouseClicked(e -> 
+		this.setOnMouseClicked(e -> 
 		{
 			if (Editor.getEditMode() == EditMode.GUESSES)
 				Editor.focusGuess(this);
@@ -35,13 +35,13 @@ public class Guess extends HBox
 	
 	public void onFocused()
 	{
-		super.setBorder(Border.stroke(Color.RED));
+		this.setBorder(Border.stroke(Color.RED));
 		focusAnim.play();
 	}
 	
 	public void onUnfocused()
 	{
-		super.setBorder(null);
+		this.setBorder(null);
 	}
 	
 	public String getString()
