@@ -11,7 +11,7 @@ public class EditPanel extends HBox
 	{
 		EditButton editGuessesButton = new EditButton("Edit Guesses", EditMode.GUESSES);
 		EditButton editTilesButton = new EditButton("Edit Tiles", EditMode.TILES);
-		this.getChildren().addAll(editGuessesButton, editTilesButton);
+		super.getChildren().addAll(editGuessesButton, editTilesButton);
 	}
 	
 	private static class EditButton extends Button
@@ -21,9 +21,10 @@ public class EditPanel extends HBox
 		{
 			super(text);
 			HBox.setHgrow(this, Priority.ALWAYS);
-			this.setMaxWidth(Double.MAX_VALUE);
-			this.setPrefHeight(HEIGHT);
-			this.setOnAction(e -> Editor.setEditMode(editMode));
+			super.setMaxWidth(Double.MAX_VALUE);
+			super.setPrefHeight(HEIGHT);
+			super.setOnAction(e -> Editor.setEditMode(editMode));
+			super.setFocusTraversable(false);
 		}
 	}
 }

@@ -9,7 +9,8 @@ public class Main extends Application
 	@Override
 	public void start(Stage stage) 
 	{
-		stage.setScene(new Scene(new WordleBoard()));
+		stage.setScene(new Scene(WordleBoard.instance()));
+		stage.getScene().setOnKeyPressed(e -> Editor.onKeyPressed(e.getCode()));
 		stage.setResizable(false);
 		stage.setTitle("Wordle Solver");
 		stage.show();

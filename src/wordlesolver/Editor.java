@@ -20,10 +20,9 @@ public class Editor
 		}
 		
 		editMode = _editMode;
-		System.out.println(editMode.name());
 	}
 	
-	public static void onGuessClicked(Guess guess)
+	public static void focusGuess(Guess guess)
 	{
 		if (editMode != EditMode.GUESSES)
 			return;
@@ -45,7 +44,27 @@ public class Editor
 		
 		if (focusedGuess == null)
 			return;
-		
-		
+				
+		if (keyCode.isLetterKey())
+		{
+			// focusedGuess at max length, 
+			if (focusedGuess.getString().length() == Constants.WORD_LENGTH)
+			{
+				// shift focus to the next guess if it exists
+				if (focusedGuess.index + 1 != WordleBoard.NUM_GUESSES)
+					focusGuess(WordleBoard.instance().getGuess(focusedGuess.index + 1));
+				else
+					return;
+			}
+			focusedGuess.appendChar((char)keyCode.getCode());
+		}
+		else if (keyCode == KeyCode.BACK_SPACE)
+		{
+			
+		}
+		else if (keyCode == KeyCode.ENTER)
+		{
+			
+		}
 	}
 }

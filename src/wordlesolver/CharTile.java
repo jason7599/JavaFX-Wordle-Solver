@@ -24,8 +24,9 @@ public class CharTile extends StackPane
 		super.getChildren().add(charText);
 	}
 	
-	public void setChar(char _char)
+	public void setChar(char c)
 	{
-		myChar = _char;
+		charText.setText(String.valueOf(c));
+		myChar = c;
 	}
 }
