@@ -57,4 +57,19 @@ public class Guess extends HBox
 		string = string.substring(0, string.length() - 1);
 		charTiles[string.length()].setChar(' ');
 	}
+	
+	/*
+	 * Based on the current evaluations,
+	 * check whether the given word matches the criteria
+	 */
+//	public boolean testWord(String word)
+//	{
+//		for (int charIndex = 0; charIndex < Constants.WORD_LENGTH; charIndex++)
+//		{
+//			CharTile charTile = charTiles[charIndex];
+//			
+//		}
+//		
+//		return true;
+//	}
 }

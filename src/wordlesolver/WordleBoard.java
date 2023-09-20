@@ -15,7 +15,7 @@ public class WordleBoard extends BorderPane
 		return _instance;
 	}
 	
-	public static final double TILE_GAP = 15;
+	private static final double TILE_GAP = 15;
 	
 	private Guess[] guesses;
 	
@@ -37,8 +37,9 @@ public class WordleBoard extends BorderPane
 			guessesVB.getChildren().add(guess);
 		}
 		
+		this.setCenter(guessesVB);
+		
 		Editor.focusGuess(guesses[0]);
-		this.setCenter(guessesVB);		
 	}
 	
 	public Guess getGuess(int index)
