@@ -7,7 +7,7 @@ import javafx.util.Duration;
 
 public class CharTile extends StackPane
 {
-	private static final double SIZE = 125;
+	private static final double SIZE = 100;
 	private static final Font FONT = new Font("Arial Black", 50);
 	
 	private Text charText;

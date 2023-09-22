@@ -1,6 +1,7 @@
 package wordlesolver;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
@@ -25,6 +26,7 @@ public class Guess extends HBox
 		}
 		
 		this.setPadding(new Insets(20));
+		this.setAlignment(Pos.CENTER);
 		
 		focusAnim = new GrowShrinkAnimation(this, Duration.seconds(0.25), 0.125);
 	}
@@ -62,14 +64,40 @@ public class Guess extends HBox
 	 * Based on the current evaluations,
 	 * check whether the given word matches the criteria
 	 */
-//	public boolean testWord(String word)
-//	{
-//		for (int charIndex = 0; charIndex < Constants.WORD_LENGTH; charIndex++)
-//		{
-//			CharTile charTile = charTiles[charIndex];
-//			
-//		}
-//		
-//		return true;
-//	}
+	public boolean testWord(String word)
+	{
+		for (int charIndex = 0; charIndex < Constants.WORD_LENGTH; charIndex++)
+		{
+			CharTile charTile = charTiles[charIndex];
+			switch (charTile.getEvaluation())
+			{
+			case NONE: 
+				break;
+				
+			case CORRECT:
+				if (word.charAt(charIndex) != charTile.getChar())
+					return false;
+				break;
+				
+			case WRONG_SPOT:
+				if (word.charAt(charIndex) == charTile.getChar())
+					return false;
+				if (!word.contains(String.valueOf(charTile.getChar())))
+					return false;
+				break;
+				
+			case WRONG:
+				if (word.contains(String.valueOf(charTile.getChar())))
+					return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	public void clear()
+	{
+		while (!string.isEmpty())
+			removeChar();
+	}
 }

@@ -12,6 +12,7 @@ public class CandidateListView extends BorderPane
 		
 		ListView<String> listView = new ListView<>(WordsList.candidates());
 		listView.setFocusTraversable(false);
+		listView.setFixedCellSize(50);
 		
 		this.setCenter(listView);
 	}

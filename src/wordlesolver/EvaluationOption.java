@@ -14,8 +14,8 @@ import javafx.util.Duration;
 
 public class EvaluationOption extends StackPane
 {
-	private static final double SIZE = 135;
-	private static final Font FONT = Font.font("Arial", FontWeight.BOLD, 30);
+	private static final double SIZE = 112.5;
+	private static final Font FONT = Font.font("Arial", FontWeight.BOLD, 25);
 	private static final Border DEFAULT_BORDER = new Border(new BorderStroke(Color.DIMGRAY, BorderStrokeStyle.SOLID, null, new BorderWidths(2.5)));
 	private static final Border SELECTED_BORDER = new Border(new BorderStroke(Color.CYAN, BorderStrokeStyle.SOLID, null, new BorderWidths(7.5)));
 	

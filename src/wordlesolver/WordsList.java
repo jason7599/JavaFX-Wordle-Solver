@@ -3,6 +3,7 @@ package wordlesolver;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -25,11 +26,18 @@ public class WordsList
 		while ((word = reader.readLine()) != null)
 		{
 			if (word.length() == Constants.WORD_LENGTH)
-				wordsAll.add(word);
+				wordsAll.add(word.toUpperCase());
 		}
 		reader.close();
 		
+		Collections.shuffle(wordsAll);
 		candidates = FXCollections.observableArrayList(wordsAll);
+	}
+	
+	public static void resetCandidates()
+	{
+		Collections.shuffle(wordsAll);
+		candidates.setAll(wordsAll);
 	}
 	
 	public static ObservableList<String> candidates()
